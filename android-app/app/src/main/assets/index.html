@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CallBlock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Protección de llamadas</p>
+          <h1>CallBlock</h1>
+        </div>
+        <button id="themeToggle" class="icon-btn" aria-label="Cambiar tema">🌙</button>
+      </header>
+
+      <main class="main-content">
+        <section class="hero card">
+          <div class="hero-copy">
+            <span class="badge">Seguro</span>
+            <h2>Bloquea llamadas molestosas</h2>
+            <p>
+              Añade números exactos, reglas por inicio o coincidencias parciales para
+              filtrar llamadas no deseadas.
+            </p>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat card">
+            <span class="stat-label">Total</span>
+            <strong id="statTotal">0</strong>
+          </article>
+          <article class="stat card">
+            <span class="stat-label">Exactos</span>
+            <strong id="statExact">0</strong>
+          </article>
+          <article class="stat card">
+            <span class="stat-label">Empiezan con</span>
+            <strong id="statStartsWith">0</strong>
+          </article>
+          <article class="stat card">
+            <span class="stat-label">Contienen</span>
+            <strong id="statContains">0</strong>
+          </article>
+        </section>
+
+        <div class="content-grid">
+          <section class="card">
+            <div class="section-header">
+              <h3>Agregar a la lista negra</h3>
+            </div>
+
+            <form id="blacklistForm" class="stacked-form">
+              <div class="field-row">
+                <label for="nameInput">Nombre</label>
+                <input id="nameInput" type="text" placeholder="Ej. Banco" />
+              </div>
+
+              <div class="field-row">
+                <label for="phoneInput">Número</label>
+                <input id="phoneInput" type="tel" placeholder="Ej. +34 600 123 456" />
+              </div>
+
+              <div class="field-row">
+                <label for="matchType">Tipo de bloqueo</label>
+                <select id="matchType">
+                  <option value="exact">Número exacto</option>
+                  <option value="startsWith">Empieza por</option>
+                  <option value="contains">Contiene</option>
+                </select>
+              </div>
+
+              <div class="field-row">
+                <label for="reasonInput">Motivo</label>
+                <input id="reasonInput" type="text" placeholder="Spam, fraude, etc." />
+              </div>
+
+              <button class="primary-btn" type="submit">Añadir número</button>
+            </form>
+
+            <div class="contact-panel">
+              <div class="mini-header">
+                <h4>Desde contactos</h4>
+              </div>
+              <div id="contactList" class="contact-list"></div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-header">
+              <h3>Comprobar un número</h3>
+            </div>
+
+            <div class="stacked-form">
+              <div class="field-row">
+                <label for="testInput">Número a probar</label>
+                <input id="testInput" type="tel" placeholder="Ej. +34 600 123 456" />
+              </div>
+              <button id="checkNumberBtn" class="primary-btn" type="button">Comprobar bloqueo</button>
+            </div>
+
+            <div id="checkResult" class="result-box neutral">
+              Escribe un número para comprobar si será bloqueado.
+            </div>
+          </section>
+        </div>
+
+        <section class="card table-card">
+          <div class="section-header">
+            <h3>Lista negra</h3>
+            <input id="searchInput" class="search-input" type="search" placeholder="Buscar número o nombre" />
+          </div>
+          <div class="list-header">
+            <span>Nombre</span>
+            <span>Tipo</span>
+            <span>Acción</span>
+          </div>
+          <ul id="blacklistList" class="blacklist-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
