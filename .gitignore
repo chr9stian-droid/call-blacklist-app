@@ -1,0 +1,49 @@
+# CallBlock
+
+Aplicación web tipo "Call Blacklist" para gestionar números bloqueados, reglas por coincidencia y comprobación rápida de llamadas.
+
+## Características
+
+- Añadir contactos a la lista negra
+- Bloquear por:
+  - número exacto
+  - empieza por
+  - contiene
+- Probar si un número será bloqueado
+- Búsqueda rápida
+- Guardado local en localStorage
+- Diseño responsive para móvil
+
+## Cómo ejecutar
+
+Abre el archivo `index.html` en tu navegador, o usa un servidor local simple:
+
+```bash
+python -m http.server 8000
+```
+
+Y accede a:
+
+```text
+http://localhost:8000
+```
+
+## Importante
+
+Esta versión es una app web funcional para demostrar la lógica de bloqueo y se puede convertir en APK con herramientas como Capacitor o Cordova. Un bloqueo real de llamadas requiere permisos del sistema y acceso nativo a Android, no es posible desde una aplicación web normal.
+
+## Estructura
+
+- `index.html` – interfaz principal
+- `styles.css` – diseño visual
+- `app.js` – lógica de bloqueo y almacenamiento local
+
+## Personalización
+
+Puedes cambiar:
+
+- colores
+- textos
+- nombres iniciales de contactos
+- reglas por defecto
+- opciones de visualización
